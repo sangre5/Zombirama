@@ -44,7 +44,7 @@ namespace Zombirama
             }
         }
 
-        public Personaje (string nombre, int edad, RelevanciaE relevancia)
+        public Personaje (string nombre, RelevanciaE relevancia)
         {
             this.Nombre = nombre;
             this.Relevancia = relevancia;

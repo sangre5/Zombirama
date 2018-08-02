@@ -33,12 +33,15 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(181, 150);
+            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(153, 120);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 41);
+            this.button1.Size = new System.Drawing.Size(191, 112);
             this.button1.TabIndex = 0;
             this.button1.Text = "MATAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
