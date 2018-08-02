@@ -52,17 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDeDatos.cs">
+    <Compile Include="EditarVerPersonajes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseDeDatos.Designer.cs">
-      <DependentUpon>BaseDeDatos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditarPersonajes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditarPersonajes.Designer.cs">
-      <DependentUpon>EditarPersonajes.cs</DependentUpon>
+    <Compile Include="EditarVerPersonajes.Designer.cs">
+      <DependentUpon>EditarVerPersonajes.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -73,8 +67,9 @@
     <Compile Include="Personaje.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BaseDeDatos.resx">
-      <DependentUpon>BaseDeDatos.cs</DependentUpon>
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="EditarVerPersonajes.resx">
+      <DependentUpon>EditarVerPersonajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

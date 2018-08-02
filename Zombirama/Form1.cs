@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using LiteDB;
 
 namespace Zombirama
 {
-    
+
 
     public partial class Form1 : Form
     {
@@ -46,14 +43,24 @@ namespace Zombirama
 
         private void personajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditarPersonajes ep = new EditarPersonajes();
+            EditarVerPersonajes ep = new EditarVerPersonajes();
             ep.Show();
         }
 
-        private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void agregarBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BaseDeDatos db = new BaseDeDatos();
+            EditarVerPersonajes db = new EditarVerPersonajes();
             db.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            using (var db = new LiteDatabase(Path.GetTempPath() + "zombies.db"))
+            {
+                var per = db.GetCollection<Personaje>("Personajes");
+                var mu = per.FindAll().ToList();
+                MessageBox.Show(mu[0].Nombre);
+            }
         }
     }
 }

@@ -33,9 +33,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +80,21 @@
             this.personajesToolStripMenuItem.Text = "Editar Personajes";
             this.personajesToolStripMenuItem.Click += new System.EventHandler(this.personajesToolStripMenuItem_Click);
             // 
+            // configurarToolStripMenuItem
+            // 
+            this.configurarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarBaseDeDatosToolStripMenuItem});
+            this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configurarToolStripMenuItem.Text = "Configurar";
+            // 
+            // agregarBaseDeDatosToolStripMenuItem
+            // 
+            this.agregarBaseDeDatosToolStripMenuItem.Name = "agregarBaseDeDatosToolStripMenuItem";
+            this.agregarBaseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.agregarBaseDeDatosToolStripMenuItem.Text = "Agregar Base de Datos";
+            this.agregarBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.agregarBaseDeDatosToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -94,13 +110,6 @@
             this.informaciónToolStripMenuItem.Text = "Información";
             this.informaciónToolStripMenuItem.Click += new System.EventHandler(this.informaciónToolStripMenuItem_Click);
             // 
-            // configurarToolStripMenuItem
-            // 
-            this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.configurarToolStripMenuItem.Text = "Configurar";
-            this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,6 +121,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -128,6 +138,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarBaseDeDatosToolStripMenuItem;
     }
 }
 

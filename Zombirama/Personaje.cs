@@ -51,6 +51,11 @@ namespace Zombirama
             this.Estatus = EstatusE.Vivo;
         }
 
+        public Personaje()
+        {
+
+        }
+
 
     }
 }
