@@ -20,11 +20,6 @@ namespace Zombirama
         public Form1()
         {
             InitializeComponent();
-            
-            Personajes.Add(new Personaje("Arantza", Personaje.RelevanciaE.Principal));
-            Personajes.Add(new Personaje("Paulina", Personaje.RelevanciaE.Incidental));
-            Personajes.Add(new Personaje("Julio", Personaje.RelevanciaE.Secundario));
-            Personajes.Add(new Personaje("Sara", Personaje.RelevanciaE.Secundario));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,6 +35,25 @@ namespace Zombirama
             {
                 MessageBox.Show("Todos están muertos");
             }           
+        }
+
+        private void informaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Herramienta para escoger que personaje en Zombirama ha de morir \n" +
+                "Versión: 1.0 \n" +
+                "Creado por: Paulina Jurado Solís");
+        }
+
+        private void personajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditarPersonajes ep = new EditarPersonajes();
+            ep.Show();
+        }
+
+        private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BaseDeDatos db = new BaseDeDatos();
+            db.Show();
         }
     }
 }
