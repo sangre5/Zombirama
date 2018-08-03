@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.IO;
-using System.Data.SQLite;
+using LiteDB;
 
 namespace Zombirama
 {
@@ -55,76 +55,33 @@ namespace Zombirama
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SQLiteConnection.CreateFile("MyDatabase.sqlite");
-            // We use these three SQLite objects:
-
-            SQLiteConnection sqlite_conn;
-
-            SQLiteCommand sqlite_cmd;
-
-            SQLiteDataReader sqlite_datareader;
-
-
-
-            // create a new database connection:
-
-            sqlite_conn =
-                new SQLiteConnection("Data Source=MyDatabase.db;Version=3;New=True;Compress=True;");
-
-            // open the connection:
-
-            sqlite_conn.Open();
-
-            // create a new SQL command:
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "CREATE TABLE test (id integer primary key, text varchar(100));";
-
-
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
-
-            // Lets insert something into our new table:
-            sqlite_cmd.CommandText = "INSERT INTO test (id, text) VALUES (1, 'Test Text 1');";
-
-
-            // And execute this again ;D
-            sqlite_cmd.ExecuteNonQuery();
-
-            // First lets build a SQL-Query again:
-
-            sqlite_cmd.CommandText = "SELECT * FROM test";
-
-
-
-            // Now the SQLiteCommand object can give us a DataReader-Object:
-
-            sqlite_datareader = sqlite_cmd.ExecuteReader();
-
-
-
-            // The SQLiteDataReader allows us to run through the result lines:
-
-            while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
-
+            // Open database (or create if doesn't exist)
+            using (var db = new LiteDatabase(Path.GetTempPath() + "MyData.db"))
             {
+                // Get a collection (or create, if doesn't exist)
+                var col = db.GetCollection<Personaje>("personajes");
 
-                // Print out the content of the text field:
+                // Create your new customer instance
+                var p = new Personaje("arriu", Personaje.RelevanciaE.Principal);
+               
 
-                //System.Console.WriteLine( sqlite_datareader["text"] );
+                // Insert new customer document (Id will be auto-incremented)
+                col.Insert(p);
 
+                // Update a document inside a collection
+                p.Nombre = "Arantza";
 
+                col.Update(p);
 
-                string myreader = sqlite_datareader.GetString(1);
+                // Index document using document Name property
+                col.EnsureIndex(x => x.Nombre);
 
-                MessageBox.Show(myreader);
+                // Use LINQ to query documents
+                var results = col.Find(x => x.Nombre.StartsWith("Ar")).ToList();
 
+                MessageBox.Show(results[0].Nombre);
             }
 
-            // We are ready, now lets cleanup and close our connection:
-
-            sqlite_conn.Close();
 
         }
     }
